@@ -1,0 +1,86 @@
+<div class="row mt-3 justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Réservation
+            </div>
+            <div class="card-body">
+                <form [formGroup]="form" class="row" (ngSubmit)="onSubmit()">
+                   
+                    <div class="col-md-12 mb-3">
+                        <label for="lastname" class="form-label">Nom</label>
+                        <input type="text" formControlName="lastname" class="form-control" id="lastname" placeholder="">
+                        <div *ngIf="form.controls.lastname.touched &&form.controls.lastname.errors?.['required']" class="text-danger" [ngStyle]="{fontSize:'12px'}">
+                            Merci de compléter ce champ.
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="firstname" class="form-label">Prénom</label>
+                        <input type="text" formControlName="firstname" class="form-control" id="firstname" placeholder="">
+                        <div *ngIf="form.controls.firstname.touched &&form.controls.firstname.errors?.['required']" class="text-danger" [ngStyle]="{fontSize:'12px'}">
+                            Merci de compléter ce champ.
+                        </div>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="birth-date" class="form-label">Date de naissance</label>
+                        <input type="date" formControlName="birthDate" class="form-control" id="birth-date" placeholder="">
+                        <div class="text-danger" [ngStyle]="{fontSize:'12px'}">
+                            <span *ngIf="form.controls.birthDate.touched && form.controls.birthDate.errors?.['required']">Merci de compléter ce champ.</span>
+                            <span *ngIf="form.controls.birthDate.touched && form.controls.birthDate.errors?.['isUnderAge']">
+                                Vous devez être majeur(e) pour acheter des tickets.
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" formControlName="email" class="form-control" id="email" placeholder="derrick@dev.com">
+                        <div *ngIf="form.controls.email.touched &&form.controls.email.errors?.['required']" class="text-danger" [ngStyle]="{fontSize:'12px'}">
+                            Merci de compléter ce champ.
+                        </div>
+                        <div *ngIf=" form.controls.email.touched && form.controls.email.errors?.['email']" class="text-danger" [ngStyle]="{fontSize:'12px'}">
+                            Merci de saisir un email valide.
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="adult-ticket-count" class="form-label">Nb. Tickets adulte</label>
+                        <input type="number" min="0" formControlName="adultTicketCount" class="form-control" id="adult-ticket-count" placeholder="">
+                       
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="child-ticket-count" class="form-label">Nb. Tickets enfant</label>
+                        <input type="number" min="0" formControlName="childTicketCount" class="form-control" id="child-ticket-count">
+                        
+                    </div>
+                    <div class="text-danger mb-2" [ngStyle]="{fontSize:'12px'}">
+                        <span *ngIf="
+                              (form.controls.adultTicketCount.touched && form.controls.adultTicketCount.errors?.['required'])
+                              || (form.controls.childTicketCount.touched && form.controls.childTicketCount.errors?.['required'])
+                            ">
+                            Merci de renseigner le nombre de tickets.
+                        </span>
+                        <span *ngIf="
+                              (form.controls.adultTicketCount.touched && form.controls.adultTicketCount.errors?.['min'])
+                              || (form.controls.childTicketCount.touched && form.controls.childTicketCount.errors?.['min'])
+                            ">
+                            Merci de saisir un nombre de tickets valide.
+                        </span>
+                        <span *ngIf="form.errors?.['childTicketOnly']">
+                            Au moins une personne majeure doit assister à l'événement
+                        </span>
+                        <span *ngIf="form.errors?.['remainingSeats'] as remainingSeats">
+                            Il ne reste que {{ remainingSeats }} places pour cet événement.
+                        </span>
+                    </div>
+                    <div class="d-grid gap-2 mt-5">
+                        <button type="submit" [disabled]="form.invalid"  class="btn btn-primary ">Je réserve</button>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
