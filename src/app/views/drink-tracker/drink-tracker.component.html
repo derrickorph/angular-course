@@ -1,0 +1,41 @@
+<div class="row my-3 justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                DRINK TRACKER
+            </div>
+
+            <div class="card-body ">
+                <div class="card-text my-3 text-success-emphasis text-center">Suivi des boissons</div>
+                <div class="mb-5 mt-1">
+                    <p>Je veux suivre ma consommation :</p>
+                    <div class="form-check">
+                        <input class="form-check-input" [checked]="type()=== Drink.Water" (change)="type.set(Drink.Water)" type="radio" name="type" id="water">
+                        <label class="form-check-label" for="water">
+                            <img src="assets/2.PNG" width="20" alt=""> d'eau
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" [checked]="type()=== Drink.Coffee" (change)="type.set(Drink.Coffee)"  type="radio" name="type" id="coffee" >
+                        <label class="form-check-label" for="coffee">
+                            <img src="assets/4.PNG" width="20" alt=""> de café
+                        </label>
+                    </div>
+                </div>
+                <div class="text-center">
+
+                    <button class="btn btn-danger btn-sm me-2" (click)="decrement()">
+                        <i class="bi bi-dash-circle"></i>
+                    </button>
+                    <img [src]="quantity()> index? filledImageUrl(): emptyImageUrl()" width="70" height="70" *ngFor="let index of indexes" (click)="quantity.set(index + 1)">
+                    <button class="btn btn-success btn-sm me-2" (click)="increment()">
+                        <i class="bi bi-plus-circle"></i>
+                    </button>
+                </div>
+                <div class="card-text my-3 text-success-emphasis text-center">{{ message() }}</div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

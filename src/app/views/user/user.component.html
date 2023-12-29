@@ -1,0 +1,64 @@
+
+<div class="row mt-3 justify-content-center">
+    <div class="col-md-10">
+        <div class="card ">
+            <div class="card-header">
+                User
+            </div>
+            <div class="card bg-primary-subtle m-2">
+                <div class="card-body">
+                    <div class="card-text mb-1">Rechercher</div>
+                   <form class="row">
+                        <div class=" col-md-3 mb-3">
+                            <input type="text" id="name" name="name"  [ngModel]="name()"  (keyup)="name.set($any($event.target).value)"  class="form-control form-control-sm"  placeholder="Nom">
+                        </div>
+                        <div class=" col-md-3 mb-3">
+                            <input type="text" [ngModel]="username()" (keyup)="username.set($any($event.target).value)" class="form-control form-control-sm" id="username" name="username" placeholder="Username">
+                        </div>
+                        <div class=" col-md-3 mb-3">
+                            <input type="email" [ngModel]="email()" (keyup)="email.set($any($event.target).value)" class="form-control form-control-sm" id="email" name="email" placeholder="Email">
+                        </div>
+                        <div class=" col-md-3 mb-3">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" name="available" [ngModel]="available()" (keyup)="available.set($any($event.target).value)" type="checkbox" role="switch" id="available">
+                                <label class="form-check-label" for="available">Disponiblilié</label>
+                            </div>
+                        </div>
+                   </form>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered caption-top">
+                        <caption>List of users</caption>
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Username</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Téléphone</th>
+                                <th scope="col">Website</th>
+                                <th scope="col">Disponible</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let user of users()">
+                                <td>{{ user.id }}</td>
+                                <td>{{ user.name }}</td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.phone }}</td>
+                                <td>{{ user.website }}</td>
+                                <td>{{ user.available }}</td>
+                                
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
