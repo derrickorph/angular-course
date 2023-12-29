@@ -12,11 +12,14 @@
         <li class="nav-item">
           <a class="nav-link"  routerLink="/reservation" routerLinkActive="active">Réservation</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ifAdmin>
           <a class="nav-link"  routerLink="/user" routerLinkActive="active">User</a>
         </li>
         <li class="nav-item">
           <a class="nav-link"  routerLink="/drink-tracker" routerLinkActive="active">Drink Tracker</a>
+        </li>
+        <li class="nav-item" *ifAuthenticated>
+          <a class="nav-link"  routerLink="/for-directive" routerLinkActive="active">For Directive</a>
         </li>
         
       </ul>

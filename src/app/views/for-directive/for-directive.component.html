@@ -1,0 +1,4 @@
+<div *ngFor="let person of persons; else emptyList">
+    {{ person.name }}
+</div>
+<ng-template #emptyList> The list is empty</ng-template>
