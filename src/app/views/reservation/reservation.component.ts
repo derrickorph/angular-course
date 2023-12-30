@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormControl, FormGroup, FormsModule, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Observable, map } from 'rxjs';
-import { isAdultValidator } from '../../core/validators/is-adult.validator';
-import { EventGateway } from '../../core/gateways/event.gateway';
+import { isAdultValidator } from '../../shared/validators/is-adult.validator';
+import { EventGateway } from '../../core/ports/event.gateway';
 
 @Component({
   selector: 'app-reservation',

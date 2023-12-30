@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { IfAuthenticatedDirective } from '../../../core/directives/if-authenticated.directive';
-import { IfAdminDirective } from '../../../core/directives/if-admin.directive';
+import { IfAuthenticatedDirective } from '../../../shared/directives/if-authenticated.directive';
+import { IfAdminDirective } from '../../../shared/directives/if-admin.directive';
 
 @Component({
   selector: 'app-navbar',

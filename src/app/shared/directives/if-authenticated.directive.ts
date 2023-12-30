@@ -1,4 +1,4 @@
-import { AuthenticationGateway } from './../gateways/authentication.gateway';
+import { AuthenticationGateway } from '../../core/ports/authentication.gateway';
 import { Directive, inject, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 

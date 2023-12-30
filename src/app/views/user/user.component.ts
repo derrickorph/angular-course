@@ -1,4 +1,4 @@
-import { UsersGateway } from '../../core/gateways/users.gateway';
+import { UsersGateway } from '../../core/ports/users.gateway';
 import { Component, Signal, computed, inject, signal } from '@angular/core';
 import { User } from '../../core/models/user.model';
 import { CommonModule } from '@angular/common';

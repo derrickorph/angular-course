@@ -1,7 +1,7 @@
 import { Directive, inject, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { IdentityGateway } from '../gateways/identity.gateway';
-import { AuthenticationGateway } from '../gateways/authentication.gateway';
+import { IdentityGateway } from '../../core/ports/identity.gateway';
+import { AuthenticationGateway } from '../../core/ports/authentication.gateway';
 
 @Directive({
   selector: '[ifAdmin]',
