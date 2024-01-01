@@ -33,7 +33,7 @@ export class LocalStorageTaskGateway extends TaskGateway {
   }
 
   remove(taskId: number): Observable<void> {
-    const tasks = this.getTasks().filter((task) => task.id !== taskId);
+    const tasks = this.getTasks().filter((task) => task.id !== taskId)!;
     this.writeTasks(tasks);
     return of(void 0);
   }

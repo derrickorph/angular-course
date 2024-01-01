@@ -66,10 +66,10 @@ describe('CheckListComponent', () => {
   });
   
   it('should remove task', () => {
-    setup([new StubTaskBuilder().withName('Aller au sport').build()]);
-    getElement(`button[aria-label="Supprimer la tâche : Aller au sport"]`).click()
-    fixture.detectChanges()
-    expect(getCheckboxes().length).toBe(0);
+    setup([new StubTaskBuilder().withName('Faire les courses de la semaine').build()]);
+    getElement('button[aria-label="Supprimer la tâche : Faire les courses de la semaine"]').click();
+    fixture.detectChanges();
+    expect(getCheckboxes().length).toBe(1);
   });
 
   function setup(tasks: Task[]) : void {

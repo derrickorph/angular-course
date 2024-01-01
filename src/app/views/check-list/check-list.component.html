@@ -5,11 +5,15 @@
                 Check List
             </div>
             <div class="card-body mb-5">
-                <app-add-task-form (add)="addTask($event)" />
-                <app-check-list-item *ngFor="let task of tasks()" [task]="task" (remove)="remove($event)" (toggle)="toggle($event)" />
-                <div class="card-text my-5 text-center " *ngIf="!tasks()?.length">
-                    Ajoute ta première tâche 👋
-                </div>
+                <app-add-task-form (add)="add$$.next($event)" />
+                <ng-container *ngIf="tasks()?.length else empty">
+                    <app-check-list-item *ngFor="let task of tasks()" [task]="task" (delete)="delete$$.next($event)" (toggle)="toggle$$.next($event)" />
+                </ng-container>
+                <ng-template #empty>
+                    <div class="card-text my-5 text-center ">
+                        Ajoute ta première tâche 👋
+                    </div>
+                </ng-template>
             </div>
         </div>
 
